@@ -345,6 +345,8 @@
     </table>
     <!-- Place the button here, below the table -->
     <button id="downloadButton" class="scoreTable-button">Download as HTML</button>
+    <button id="resetButton" class="scoreTable-button">Reset Form</button>
+
   </div>
   
   <script>
@@ -514,6 +516,21 @@ document.getElementById("downloadButton").addEventListener("click", function () 
 
   element.click();
   document.body.removeChild(element);
+});
+// Function to reset the form fields
+document.getElementById("resetButton").addEventListener("click", function () {
+  // Reset the form to its initial state
+  document.getElementById("interviewDate").value = "";
+  document.getElementById("interviewTime").value = "";
+  document.getElementById("interviewer").value = "";
+
+  for (let i = 1; i <= 10; i++) {
+    document.getElementById('score' + i).selectedIndex = 0;
+    document.getElementById('guideline' + i).textContent = '';
+  }
+  calculateTotalScore(); // Recalculate the total score (which will be 0)
+
+  // You can add additional code here to reset any other form fields if needed
 });
 
   </script>
