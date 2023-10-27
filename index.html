@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Visa Credibility Interview Quality Sheet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #071013;
+    }
+    header {
+      background-color: #EB5160;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .container {
+      margin-top: 2em;
+      padding: 2em;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    .short-input {
+      width: 15%;
+    }
+    .hidden {
+      display: none;
+    }
+    .scoreTable-button {
+    background-color: #4ca5af; /* Blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 4px;
+    }
+    .container {
+  position: relative; /* Ensure the container is relatively positioned */
+}
+
+.container {
+  position: relative;
+  /* Existing container styles here */
+}
+
+#scorecard-container {
+  /* Other styles here */
+  height: 165px; /* Change the height value to your desired height */
+}
+
+#scorecard-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f9f9f9;
+  border: 0.1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#scorecard-container h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#scorecard-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#scorecard-container li {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* Hover effect */
+#scorecard-container li:hover {
+  color: #007BFF; /* Change to your preferred hover color */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+  /* Your existing styles */
+  /* Add the following styles for the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc; /* Add a border to the entire table */
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #AAAAAA; /* Add borders to all cells */
+  }
+
+  th {
+    background-color: #ff1c1c;
+    color: rgb(0, 0, 0);
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #d9edf7;
+    transition: background-color 0.3s;
+  }
+
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Innovative styles */
+  .table-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    background-color: #ffffff;
+  }
+
+  .table-header {
+    background-color: #007BFF;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Visa Credibility Interview Quality Sheet</h1>
+  </header>
+  <div class="container">
+   <h2>Section 1: Pre-Interview Risk Assessment</h2>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="breakInStudy">
+    <label class="form-check-label" for="breakInStudy">12 month or more break in study</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="previousStudyUK">
+    <label class="form-check-label" for="previousStudyUK">Previous study in the UK</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="priorSameLevelStudy">
+    <label class="form-check-label" for="priorSameLevelStudy">Prior study at the same or higher level than course applied for</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="visaRefusals">
+    <label class="form-check-label" for="visaRefusals">Prior visa refusals or immigration issues</label>
+  </div>
+    <h2 class="mt-4">Section 2: Interview Record</h2>
+    <div class="mb-3">
+        <label for="interviewDate" class="form-label">Date:</label>
+        <input type="date" class="form-control short-input" id="interviewDate">
+      </div>
+      <div class="mb-3">
+        <label for="interviewTime" class="form-label">Time:</label>
+        <input type="time" class="form-control short-input" id="interviewTime">
+      </div>
+      <div class="mb-3">
+        <label for="interviewer" class="form-label">Interviewer:</label>
+        <input type="text" class="form-control short-input" id="interviewer">
+      </div>
+      <div id="scorecard-container">
+        <h3>Scorecard Grading</h3>
+        <ul>
+          <li>Pass (Score 40-50)</li>
+          <li>Re-interview (Score 20-39)</li>
+          <li>Fail (Score 0-19)</li>
+        </ul>
+      </div>
+      
+    <h3 class="mt-4">Evaluative Parameters for Scoring</h3>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Guideline</th>
+          <th>Student's Notes</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows for each parameter -->
+        <!-- Row for Specificity of Study Intent -->
+        <tr>
+          <td>Specificity of Study Intent</td>
+          <td id="guideline1" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score1" class="form-select" onchange="showGuideline(1)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Country Comparison -->
+        <tr>
+          <td>Country Comparison</td>
+          <td id="guideline2" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score2" class="form-select" onchange="showGuideline(2)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Course & University Justification -->
+        <tr>
+          <td>Course & University Justification</td>
+          <td id="guideline3" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score3" class="form-select" onchange="showGuideline(3)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Credibility & Risk Factors -->
+        <tr>
+          <td>Credibility & Risk Factors</td>
+          <td id="guideline4" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score4" class="form-select" onchange="showGuideline(4)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Awareness of Visa & Immigration Rules -->
+        <tr>
+          <td>Awareness of Visa & Immigration Rules</td>
+          <td id="guideline5" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score5" class="form-select" onchange="showGuideline(5)">
+            <option value="" disabled selected>Select</option>
+                 <option value="5">5</option>
+                 <option value="3">3</option>
+                 <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Financial Preparedness -->
+        <tr>
+          <td>Financial Preparedness</td>
+          <td id="guideline6" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score6" class="form-select" onchange="showGuideline(6)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Post-Graduation Plans -->
+        <tr>
+          <td>Post-Graduation Plans</td>
+          <td id="guideline7" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score7" class="form-select" onchange="showGuideline(7)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Cultural Integration -->
+        <tr>
+          <td>Cultural Integration</td>
+          <td id="guideline8" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score8" class="form-select" onchange="showGuideline(8)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Verification of Academic Documents -->
+        <tr>
+          <td>Verification of Academic Documents</td>
+          <td id="guideline9" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score9" class="form-select" onchange="showGuideline(9)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Row for Interview Conduct -->
+        <tr>
+          <td>Interview Conduct</td>
+          <td id="guideline10" class="hidden"></td>
+          <td><input type="text" class="form-control"></td>
+          <td>
+            <select id="score10" class="form-select" onchange="showGuideline(10)">
+            <option value="" disabled selected>Select</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+              <option value="1">1</option>
+            </select>
+          </td>
+          <tr>
+            <td colspan="3" align="right"></td>
+            <td id="totalScore"><strong></strong></td> <!-- Wrapping with <strong> to make it bold -->
+          </tr>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Place the button here, below the table -->
+    <button id="downloadButton" class="scoreTable-button">Download as HTML</button>
+  </div>
+  
+  <script>
+    function showGuideline(row) {
+      const score = document.getElementById('score' + row).value;
+      const guidelineCell = document.getElementById('guideline' + row);
+
+      let guidelineText = '';
+      switch(score) {
+        case '5':
+          switch(row) {
+            case 1:
+              guidelineText = 'Clearly articulates intent to study, supported by past academic records';
+              break;
+            case 2:
+              guidelineText = 'Well-reasoned comparison favoring the UK over home country or other options';
+              break;
+            case 3:
+              guidelineText = 'Strong justification for course and university choice';
+              break;
+            case 4:
+              guidelineText = 'High credibility, low risk factors';
+              break;
+            case 5:
+              guidelineText = 'Comprehensive understanding and no previous issues';
+              break;
+            case 6:
+              guidelineText = 'Clear understanding and demonstration of financial preparedness';
+              break;
+            case 7:
+              guidelineText = 'Clear, realistic and aligned with the study program';
+              break;
+            case 8:
+              guidelineText = 'Demonstrates readiness and enthusiasm for cultural integration';
+              break;
+            case 9:
+              guidelineText = 'All documents verified and credible';
+              break;
+            case 10:
+              guidelineText = 'Professional, engaged, and respectful throughout';
+              break;
+          }
+          break;
+        case '3':
+          switch(row) {
+            case 1:
+              guidelineText = 'General study intent, but less clear on specifics';
+              break;
+            case 2:
+              guidelineText = 'Some reason for choosing the UK but not comprehensive';
+              break;
+            case 3:
+              guidelineText = 'Moderate justification for course and university';
+              break;
+            case 4:
+              guidelineText = 'Medium credibility, some risk factors';
+              break;
+            case 5:
+              guidelineText = 'Basic understanding, minor misunderstandings';
+              break;
+            case 6:
+              guidelineText = 'General understanding, some minor issues';
+              break;
+            case 7:
+              guidelineText = 'General or vague plans, minor inconsistencies';
+              break;
+            case 8:
+              guidelineText = 'Shows some preparedness, but with reservations';
+              break;
+            case 9:
+              guidelineText = 'Most documents verified, minor issues';
+              break;
+            case 10:
+              guidelineText = 'Generally good conduct but with some lapses';
+              break;
+          }
+          break;
+        case '1':
+          switch(row) {
+            case 1:
+              guidelineText = 'Vague or inconsistent intent';
+              break;
+            case 2:
+              guidelineText = 'No specific reason or uninformed choice';
+              break;
+            case 3:
+              guidelineText = 'Weak justification for course and university';
+              break;
+            case 4:
+              guidelineText = 'Low credibility, high risk factors';
+              break;
+            case 5:
+              guidelineText = 'Lack of understanding, major misconceptions';
+              break;
+            case 6:
+              guidelineText = 'Lack of understanding or unprepared financially';
+              break;
+            case 7:
+              guidelineText = 'No clear plan or major inconsistencies';
+              break;
+            case 8:
+              guidelineText = 'Unprepared or unwilling to integrate';
+              break;
+            case 9:
+              guidelineText = 'Significant issues in document verification';
+              break;
+            case 10:
+              guidelineText = 'Poor conduct or significant issues';
+              break;
+          }
+          break;
+        default:
+          guidelineText = '';
+      }
+      guidelineCell.textContent = guidelineText;
+      guidelineCell.classList.remove('hidden');
+      calculateTotalScore(); // Calculate the total score
+    }
+    // Function to calculate total score
+function calculateTotalScore() {
+  let total = 0;
+  for (let i = 1; i <= 10; i++) {
+    const score = document.getElementById('score' + i).value;
+    total += score ? parseInt(score) : 0;
+  }
+  const totalCell = document.getElementById('totalScore').querySelector('strong');
+  totalCell.innerText = "Total Score: " + total;
+  totalCell.classList.remove("hidden");
+}
+
+document.getElementById("downloadButton").addEventListener("click", function () {
+  var clone = document.documentElement.cloneNode(true);
+
+  var inputs = clone.querySelectorAll('input, textarea, select');
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    var text;
+
+    if (input.type === "checkbox") {
+      if (input.checked) {
+        text = document.createTextNode("Checked: " + input.value);
+      } else {
+        input.parentNode.parentNode.removeChild(input.parentNode);
+        continue;
+      }
+    } else if (input.tagName === 'SELECT' && input.classList.contains('form-select')) {
+      var selectedIndex = input.selectedIndex;
+      if (selectedIndex > 0) {
+        text = document.createTextNode(input.options[selectedIndex].text); // Display selected score text if not "Select"
+      } else {
+        text = document.createTextNode(""); // if nothing selected or "Select" is selected, it remains empty
+      }
+    } else {
+      text = document.createTextNode(input.value);
+    }
+
+    var parent = input.parentNode;
+    parent.replaceChild(text, input);
+  }
+
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/html;charset=UTF-8,' + encodeURIComponent(clone.outerHTML));
+  element.setAttribute('download', "download.html");
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+  document.body.removeChild(element);
+});
+
+  </script>
+</body>
+</html>
