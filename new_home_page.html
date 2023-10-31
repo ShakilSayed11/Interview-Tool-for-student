@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shakil Sayed - Student Evaluation Tool#19</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--dark-blue);
+}
+
+body {
+    background-color: #1f2029 !important;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 15px 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background-color: #141115;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 600;
+    padding-right: 20px; /* Adds padding to the right */
+}
+
+.center-container {
+  display: flex;
+  justify-content: left;
+  margin-left: 40px;
+  margin-top: 40px;
+  font-family: 'Poppins', sans-serif;  /* Use the Poppins font */
+  font-weight: 600;  /* Make it bold */
+}
+
+.center-header {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 24px;  /* Adjust size as needed */
+  color: aliceblue;
+  font-family: 'Poppins', sans-serif;  /* Use the Poppins font */
+  font-weight: 600;  /* Make it bold */
+}
+
+/* Input Fields */
+.box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: fit-content; /* Keeps the width as per the content */
+  margin: 20px auto 20px 20px; /* Top, Right, Bottom, Left */
+}
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;  /* This will make the form-group take the full width of the box */
+}
+
+.custom-input-field {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #1f2029;
+    border: 3px solid #dcdde1;
+    border-radius: 10px;
+    padding: 8px;
+    transition: border-color 0.3s;
+    width: 85%; /* You can adjust the width as per your requirement */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.custom-input-field:hover {
+    border-color: #1f2029;
+}
+
+.custom-input-field::placeholder {
+    color: #ccc;
+}
+
+
+
+
+
+
+
+/* ... Existing CSS ... */
+
+.checkbox-wrapper-14 {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark-blue);
+  margin-bottom: 16px; /* Increased space between each item */
+}
+
+.checkbox-wrapper-14 label {
+  margin-top: 8.5px;
+  margin-left: 10px; /* Increased space between the checkbox and the label */
+  
+}
+
+/* For h3 and h4 titles within the .section and .container */
+.section h3, .section h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark-blue);
+  font-weight: 600;
+  margin: 20px 0; /* Increased space above and below the titles */
+}
+
+/* For paragraphs within the .section and .container */
+.section p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark-blue);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 20px; /* Increased space below each paragraph */
+}
+
+/* CSS for the box */
+.box {
+  background-color: white;
+  padding: 30px; /* Increased padding for better visual appearance */
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin: 40px; /* Increased all-side margin for better visual appearance */
+}
+
+/* Desgin for the table*/
+
+.styled-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #dcdde1;
+    table-layout: fixed; /* Ensures that the table does not exceed the view field */
+}
+
+.styled-table thead tr {
+    background-color: var(--dark-blue);
+    color: white;
+    border: 1px solid #dcdde1;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border-radius: 5px;
+    white-space: normal; /* Allows the text to wrap */
+    word-wrap: break-word; /* Breaks the word if it is too long */
+    border: 1px solid #dcdde1;
+}
+
+.styled-table th:first-child,
+.styled-table td:first-child {
+    width: 50%;  /* Adjusts the width of the first column */
+}
+
+.styled-table tbody tr {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dcdde1;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark-blue);
+  font-weight: 600;  /* Makes the text bolder */
+}
+
+/* New styles for inline layout */
+.inline-form-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.inline-container {
+  margin-right: 20px;
+}
+
+.fixed-width {
+  width: 250px;  /* Adjust the width as needed */
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar Section -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-menu">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="navbar-brand">
+        My Project Title
+      </div>
+    </div>
+  </nav>
+  
+  <div class="section">
+    <div class="container center-container">
+      <h2 class="center-header">Student Visa Credibility Interview Quality Sheet
+      </h2>
+  </div>
+
+  <!-- ... Intial Form input ... -->
+  
+
+  <div class="section">
+    <div class="container">
+      <form class="box">
+        <!-- Student Name and Date Picker -->
+        <div class="form-group inline-form-group">
+          <div class="inline-container">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" class="custom-input-field fixed-width">
+          </div>
+          
+          <div class="inline-container">
+            <label for="interviewDate">Interview Date:</label>
+            <input type="date" id="interviewDate" name="interviewDate" class="custom-input-field fixed-width">
+          </div>
+        </div>
+        
+        <!-- Course and Time Picker -->
+        <div class="form-group inline-form-group">
+          <div class="inline-container">
+            <label for="course" style="color: #1f2029; font-family: 'Poppins', sans-serif;">Course:</label>
+            <input type="text" id="course" name="course" class="custom-input-field fixed-width">
+          </div>
+          
+          <div class="inline-container">
+            <label for="interviewTime">Interview Time:</label>
+            <input type="time" id="interviewTime" name="interviewTime" class="custom-input-field fixed-width">
+          </div>
+        </div>
+        
+        <!-- Student ID and Interviewer's Name -->
+        <div class="form-group inline-form-group">
+          <div class="inline-container">
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="studentID" class="custom-input-field fixed-width">
+          </div>
+  
+          <div class="inline-container">
+            <label for="interviewerName">Interviewer's Name:</label>
+            <input type="text" id="interviewerName" name="interviewerName" class="custom-input-field fixed-width">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  <div class="section">
+    <div class="container">
+      <div class="box" style="margin-left: 20px;"> <!-- The box with added left margin -->
+        <h3>SECTION 1. PRE-INTERVIEW RISK ASSESSMENT</h3>
+        <p>In order to ensure students have the appropriate preparation for their Student visa credibility interview, a pre-interview risk assessment is required for all applicants.</p>
+        <p>The applicant is not usually required to take part in this stage of the process – the information required should be supplied as part of the completed application.</p>
+        <p>Any applicant for whom one or more of the criteria in section 1.1 apply should undertake the extended interview. The criteria in which they have been identified as a higher risk of visa refusal are particularly important areas for extended questioning.</p>
+        <h4>1.1. Assessment Criteria</h4>
+        <div class="checkbox-wrapper-14"><input type="checkbox"><label>12 month or more break in study</label></div>
+        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Previous study in the UK</label></div>
+        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Prior study at the same or higher level than course applied for</label></div>
+        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Prior visa refusals or immigration issues</label></div>
+        <h4>1.2. Interview required</h4>
+        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Standard interview</label></div>
+        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Extended interview</label></div>
+      </div>
+    </div>
+  </div>
+
+   <div class="section">
+    <div class="container">
+      <div class="box" style="margin-left: 40px;">
+        <h3>INTERVIEW QUESTIONS</h3>
+        <div class="styled-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Questions</th>
+                <th>Checkbox</th>
+                <th>Text Area</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Question 1 -->
+              <tr>
+                <td>What are the advantages of a UK qualification?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Did you consider studying in any other countries?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>What criteria did youuse to select this university/college?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Why are these pointsimportant to you?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Did you consider anyother universities or colleges?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Can you describe the research that you conducted?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Why were you researching these universities rather than any others?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>How is this course related to both your previous studies & your future career plan?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>What do you already know about this course?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>When did you complete
+                  your previous studies
+                  and what did you stud</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>What do you plan to do
+                  after you have
+                  completed your studi</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Why did you choose this as a career path?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Why is this course the best possible option for that type of job?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Where is the money coming from to pay your tuition fees and living expenses?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If sponsored by parents/family) What is their income and where does their money come from?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If sponsored by parents/family) What proportion of their income are they going to spend on your tuition fees and living expenses?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If self-funding) Where did you get the money from?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If using an education loan) Is it part of an approved/regulated education loans scheme?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If using an education loan) How much are you borrowing and what are the repayment terms?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>How many family members rely on your income or your sponsor's income?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Do you plan to bring any dependants to the UK?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Do you have any family or friends currently living in the UK?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If yes) How are you related to them? And where in the UK do they live?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Where do you plan to live during your studies?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>How far is this accommodation from your campus/site of study?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>How much is your rent going to cost?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>What is the address of the campus where you will be studying?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>How long are your studies going to last for?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>What will be the total tuition fees for your studies?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Do you plan to work part-time during your studies?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Do you plan to apply for a 2-year post study work permit after completing your degree?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If yes) what types of jobs will you be looking for ?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>"What are the advantages of a UK qualification?"</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Have you ever previously applied for any type of UK visa?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If yes) When have you applied and what types of visa have you applied for?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Was the visa granted or refused?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If refused) What was the reason for the refusal?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If refused) What has changed in your circumstances between then & now?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Have you ever previously applied for any type of visa for any country for any purpose?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If yes) Which countries and what type of visa?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>Were those applications granted or refused?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>
+              <tr>
+                <td>(If refused) What was the reason for the refusal(s)?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Satisfactory Answer</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Unsatisfactory Answer</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+              </tr>        
+                
+              <!-- #Table ends here# -->
+              
+
+            </tbody>
+          </table>
+          <button id="downloadButton">Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const downloadButton = document.getElementById("downloadButton");
+
+      downloadButton.addEventListener("click", function() {
+        // Capture the entire body or another container that wraps around all the content you want to capture.
+        const contentToCapture = document.body;
+
+        const opt = {
+          margin: 10,
+          filename: 'entire-page.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().from(contentToCapture).set(opt).outputPdf().then(function(pdf) {
+          html2pdf().from(contentToCapture).set(opt).save();  // This will trigger the download
+        });
+      });
+    });
+  </script>
+</body>
+</html>
