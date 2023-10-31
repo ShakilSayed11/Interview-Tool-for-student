@@ -389,6 +389,50 @@ i.far.fa-clock {
   .checkbox-wrapper-14 *:after {
     box-sizing: inherit;
   }
+
+
+/* Navbar Styles */
+.navbar {
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 15px 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background-color: #141115;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 600;
+    padding-right: 20px; /* Adds padding to the right */
+}
 </style>
 <body>
 <!-- partial:index.partial.html -->
@@ -400,13 +444,19 @@ i.far.fa-clock {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     <header class="header section">
+    <nav class="navbar">
         <div class="container">
-            <div class="header-text">
-                <h1>Student Visa Credibility Interview Quality Sheet</h1>
-            </div>
+          <div class="navbar-menu">
+            <a href="new_home_page.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="navbar-brand">
+            My Project Title
+          </div>
         </div>
-    </header>
+      </nav>
     <main class="section">
         <div class="container">
             <div class="box" id="box1">
@@ -815,7 +865,6 @@ function downloadPage() {
 
 // Attach the function to your download button
 document.getElementById('downloadButton').addEventListener('click', downloadPage);
-
 
 </script>
 </html>
