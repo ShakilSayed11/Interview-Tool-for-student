@@ -1,0 +1,29 @@
+
+LICENSE
+
+Copyright (c) [2023], Shakil Sayed
+
+All rights reserved.
+
+---
+
+NOTICE: All information contained herein is, and remains the property of Shakil Sayed.
+The intellectual and technical concepts contained herein are proprietary to Shakil Sayed
+and may be covered by applicable laws and are protected by trade secret or copyright law.
+Dissemination of this information or reproduction of this material is strictly forbidden
+unless prior written permission is obtained from Shakil Sayed.
+
+---
+
+PERMISSIONS:
+
+Use of this software is strictly chargeable and requires explicit permission from the owner, Shakil Sayed.
+No part of this software may be reproduced, distributed, or transmitted in any form or by any means,
+including photocopying, recording, or other electronic or mechanical methods, without the prior
+written permission of the owner, Shakil Sayed.
+
+---
+
+DISCLAIMER:
+
+This software is provided "as is", without warranty of any kind, express or implied.
