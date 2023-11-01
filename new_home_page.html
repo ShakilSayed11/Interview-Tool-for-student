@@ -7,7 +7,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <link rel="stylesheet" href="./style.css">
+
   <style>
+  
+  /* Root variable for dark-blue color, useful for reusability */
+  @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+
+:root {
+    --dark-blue: #1f2029;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -16,223 +25,540 @@ body {
     background-color: var(--dark-blue);
 }
 
-body {
-    background-color: #1f2029 !important;
+.header {
+    background-color: var(--dark-blue);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-/* Navbar Styles */
+
+/* Base styling for the entire navbar */
 .navbar {
-  background-color: var(--dark-blue);
-  color: white;
-  padding: 15px 0;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: var(--dark-blue);  /* Background color, using CSS variable */
+  color: white;  /* Text color */
+  padding: 15px 0;  /* Padding at the top and bottom */
+  width: 100%;  /* Full width */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);  /* Shadow for a lifted appearance */
 }
 
+/* Styling for the brand name/title in the navbar */
 .navbar-brand {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 24px;  /* Font size */
+  font-weight: 600;  /* Font weight */
 }
 
+/* Flexbox styling for menu items */
 .navbar-menu {
-  display: flex;
-  gap: 20px;
+  display: flex;  /* Display as flexbox for horizontal alignment */
+  gap: 20px;  /* Gap between each menu item */
 }
 
+/* Individual menu item styling */
 .navbar-menu a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  color: white;  /* Text color */
+  text-decoration: none;  /* Remove underline */
+  padding: 10px 15px;  /* Padding around text */
+  border-radius: 5px;  /* Rounded corners */
+  transition: background-color 0.3s;  /* Transition effect for hover */
 }
 
+/* Hover effect for menu items */
 .navbar-menu a:hover {
-  background-color: #141115;
+  background-color: #141115;  /* Background color when hovered */
 }
 
+/* Flexbox styling for the container */
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;  /* Display as flexbox */
+  justify-content: space-between;  /* Space between menu and brand */
+  align-items: center;  /* Vertically align items */
 }
 
+/* Additional styling for brand (padding) */
 .navbar-brand {
-    font-size: 24px;
-    font-weight: 600;
-    padding-right: 20px; /* Adds padding to the right */
+  font-size: 24px;  /* Font size (repeated for clarity) */
+  font-weight: 600;  /* Font weight (repeated for clarity) */
+  padding-right: 20px;  /* Padding to the right of the brand name */
 }
 
-.center-container {
-  display: flex;
-  justify-content: left;
-  margin-left: 40px;
-  margin-top: 40px;
-  font-family: 'Poppins', sans-serif;  /* Use the Poppins font */
-  font-weight: 600;  /* Make it bold */
+/* Styling for the header */
+.left-header {
+  font-weight: bold;  /* Makes the text bold */
+  text-align: left;  /* Aligns the text to the left */
+  margin-left: 30px;  /* Ensures there's no extra margin on the left */
+  font-size: 24px;  /* Sets the font size */
+  font-family: 'Poppins', sans-serif;  /* Sets the font to 'Poppins', similar to Max */
+  color: white;
+  
 }
 
-.center-header {
-  text-align: left;
-  margin-top: 20px;
-  font-size: 24px;  /* Adjust size as needed */
-  color: aliceblue;
-  font-family: 'Poppins', sans-serif;  /* Use the Poppins font */
-  font-weight: 600;  /* Make it bold */
+/* Styling for the section wrapper */
+.section {
+  /* General styling for the section */
 }
 
-/* Input Fields */
-.box {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: fit-content; /* Keeps the width as per the content */
-  margin: 20px auto 20px 20px; /* Top, Right, Bottom, Left */
+/* Styling for the main container */
+.container {
+  /* General styling for the container */
 }
+
+/* Styling for the form box */
+.form-box {
+  background-color: var(--dark-blue);  /* Background color from Max */
+  color: rgb(13, 10, 10);  /* Text color from Max */
+  padding: 20px;  /* Padding inside the box */
+  border-radius: 5px;  /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Shadow for a lifted appearance */
+  background-color: #ffffff;
+  margin-left: 20px;  /* Move the box towards the right by 50px */
+  max-width: 485px
+}
+
+/* Styling for form groups */
 .form-group {
-  margin-bottom: 20px;
-  width: 100%;  /* This will make the form-group take the full width of the box */
+  margin-bottom: 20px;  /* Margin at the bottom for spacing */
 }
 
+/* Styling for inline form groups */
+.inline-form-group {
+  display: flex;  /* Using flexbox for horizontal layout */
+  justify-content: space-between;  /* Space out inline containers */
+}
+
+/* Styling for inline containers */
+.inline-container {
+  flex: 1;  /* Take up equal space */
+}
+
+/* Styling for labels */
+label {
+  font-size: 16px;  /* Font size from Max */
+  font-weight: 600;  /* Font weight from Max */
+}
+
+/* Styling for custom input fields */
 .custom-input-field {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    color: #1f2029;
-    border: 3px solid #dcdde1;
-    border-radius: 10px;
-    padding: 8px;
-    transition: border-color 0.3s;
-    width: 85%; /* You can adjust the width as per your requirement */
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    outline: none;
+  width: 100%;  /* Full width */
+  padding: 10px;  /* Padding inside input */
+  border-radius: 10px;  /* Rounded corners */
+  border: 3px solid #ccc;  /* Border color */
+  background-color: #ffffff;  /* Background color */
 }
 
 .custom-input-field:hover {
     border-color: #1f2029;
 }
 
-.custom-input-field::placeholder {
-    color: #ccc;
+/* Styling for fixed width input fields */
+.fixed-width {
+  max-width: 200px;  /* Fixed maximum width */
+}
+
+.box1 {
+  background-color: var(--dark-blue);  /* Background color from Max */
+  color: rgb(13, 10, 10);  /* Text color from Max */
+  padding: 20px;  /* Padding inside the box */
+  border-radius: 5px;  /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Shadow for a lifted appearance */
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-left: 20px;  /* Move the box towards the right by 50px */
+  max-width: 95%
+}
+
+.box2 {
+  background-color: var(--dark-blue);  /* Background color from Max */
+  color: rgb(13, 10, 10);  /* Text color from Max */
+  padding: 20px;  /* Padding inside the box */
+  border-radius: 5px;  /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Shadow for a lifted appearance */
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-left: 20px;  /* Move the box towards the right by 50px */
+  max-width: 95%
 }
 
 
 
 
-
-
-
-/* ... Existing CSS ... */
-
-.checkbox-wrapper-14 {
-  display: flex;
-  align-items: center;
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark-blue);
-  margin-bottom: 16px; /* Increased space between each item */
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  .checkbox-wrapper-14 input[type=checkbox] {
+    --active: #275EFE;
+    --active-inner: #fff;
+    --focus: 2px rgba(39, 94, 254, .3);
+    --border: #BBC1E1;
+    --border-hover: #275EFE;
+    --background: #fff;
+    --disabled: #F6F8FF;
+    --disabled-inner: #E1E6F9;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid var(--bc, var(--border));
+    background: var(--b, var(--background));
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:checked {
+    --b: var(--active);
+    --bc: var(--active);
+    --d-o: .3s;
+    --d-t: .6s;
+    --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:disabled {
+    --b: var(--disabled);
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:disabled:checked {
+    --b: var(--disabled-inner);
+    --bc: var(--border);
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:disabled + label {
+    cursor: not-allowed;
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:hover:not(:checked):not(:disabled) {
+    --bc: var(--border-hover);
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:focus {
+    box-shadow: 0 0 0 var(--focus);
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:not(.switch) {
+    width: 21px;
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:not(.switch):after {
+    opacity: var(--o, 0);
+  }
+  .checkbox-wrapper-14 input[type=checkbox]:not(.switch):checked {
+    --o: 1;
+  }
+  .checkbox-wrapper-14 input[type=checkbox] + label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: 4px;
+  }
 }
 
-.checkbox-wrapper-14 label {
-  margin-top: 8.5px;
-  margin-left: 10px; /* Increased space between the checkbox and the label */
-  
+.checkbox-wrapper-14 input[type=checkbox]:not(.switch):after {
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--active-inner);
+  border-top: 0;
+  border-left: 0;
+  left: 10%;  /* Center align horizontally */
+  top: 40%;  /* Center align vertically */
+  left: 7px;
+  top: 4px;
+  transform: rotate(var(--r, 20deg));
+}
+.checkbox-wrapper-14 input[type=checkbox]:not(.switch):checked {
+  --r: 43deg;
+}
+.checkbox-wrapper-14 input[type=checkbox] {
+  /* ... existing styles ... */
+  border-radius: 40%;  /* Add this line for rounded corners */
+  /* ... existing styles ... */
 }
 
-/* For h3 and h4 titles within the .section and .container */
-.section h3, .section h4 {
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark-blue);
-  font-weight: 600;
-  margin: 20px 0; /* Increased space above and below the titles */
-}
 
-/* For paragraphs within the .section and .container */
-.section p {
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark-blue);
-  font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 20px; /* Increased space below each paragraph */
-}
 
-/* CSS for the box */
-.box {
-  background-color: white;
-  padding: 30px; /* Increased padding for better visual appearance */
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  margin: 40px; /* Increased all-side margin for better visual appearance */
-}
-
-/* Desgin for the table*/
-
+/* General table styles */
 .styled-table {
-    border-collapse: collapse;
     width: 100%;
-    margin: 25px 0;
+    border-collapse: collapse;
+    font-family: font-family: 'Poppins', sans-serif; /* Replace with the font used in Max design */
     font-size: 18px;
-    text-align: center;
-    border: 1px solid #dcdde1;
-    table-layout: fixed; /* Ensures that the table does not exceed the view field */
+    text-align: left;
 }
 
-.styled-table thead tr {
-    background-color: var(--dark-blue);
-    color: white;
-    border: 1px solid #dcdde1;
+/* Header Styles */
+.styled-table thead {
+    background-color: "Max Header Background Color";  /* Replace with Max design header background color */
+    color: "Max Header Text Color";  /* Replace with Max design header text color */
 }
 
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-    border-radius: 5px;
-    white-space: normal; /* Allows the text to wrap */
-    word-wrap: break-word; /* Breaks the word if it is too long */
-    border: 1px solid #dcdde1;
+.styled-table thead tr th {
+    padding: 15px;
+    border-bottom: 4px solid "Max Border Color";  /* Replace with Max design border color */
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #141115;
+    color: #F6F8FF;
+    border-radius: 4px;
 }
 
-.styled-table th:first-child,
-.styled-table td:first-child {
-    width: 50%;  /* Adjusts the width of the first column */
-}
-
+/* Body Row Styles */
 .styled-table tbody tr {
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #dcdde1;
+    transition: background-color 0.3s ease;
+    border: #141115;
+}
+
+.styled-table tbody tr:hover {
+    background-color: wheat; /* Replace with Max design row hover background color */
+}
+
+/* Cell Styles */
+.styled-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #141115 ;  /* Replace with Max design cell border color */
+    border-left: 1px  solid #141115;
+}
+
+/* For the checkboxes */
+.checkbox-wrapper-14 {
+    display: flex;
+    flex-direction: row;  /* Checkboxes are one below the other */
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* For the text area */
+textarea {
+    width: 100%;  /* Full width within cell */
+    height: 50px;  /* Adjust as needed */
+    padding: 5px;
+    border: 3px solid #141115;  /* Replace with Max design textarea border color */
+    border-radius: 10px;
+}
+
+/* For the first column */
+.styled-table tbody td:first-child {
+    width: 650px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
+}
+
+/* For the second column */
+.styled-table tbody td:nth-child(2) {
+    width: 350px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
+}
+
+/* For the third column */
+.styled-table tbody td:nth-child(3) {
+    width: 350px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
 }
 
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark-blue);
-  font-weight: 600;  /* Makes the text bolder */
+
+
+
+
+
+
+
+/* General table styles */
+.custom-styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;  /* Replace with the font used in Max design */
+    font-size: 18px;
+    text-align: left;
 }
 
-/* New styles for inline layout */
-.inline-form-group {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.box2{
   margin-bottom: 20px;
 }
 
-.inline-container {
-  margin-right: 20px;
+/* Header Styles */
+.custom-styled-table thead {
+    background-color: "Max Header Background Color";  /* Replace with Max design header background color */
+    color: "Max Header Text Color";  /* Replace with Max design header text color */
 }
 
-.fixed-width {
-  width: 250px;  /* Adjust the width as needed */
+.custom-styled-table thead tr th {
+    padding: 15px;
+    border-bottom: 4px solid "Max Border Color";  /* Replace with Max design border color */
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #141115;
+    color: #F6F8FF;
+}
+
+/* Body Row Styles */
+.custom-styled-table tbody tr {
+    transition: background-color 0.3s ease;
+    border: #141115;
+}
+
+.custom-styled-table tbody tr:hover {
+    background-color: wheat;  /* Replace with Max design row hover background color */
+}
+
+/* Cell Styles */
+.custom-styled-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #141115;  /* Replace with Max design cell border color */
+    border-left: 1px  solid #141115;
+}
+
+/* For the checkboxes */
+.custom-styled-table .checkbox-wrapper-14 {
+    display: flex;
+    flex-direction: row;  /* Checkboxes are one below the other */
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* For the text area */
+.custom-styled-table textarea {
+    width: 100%;  /* Full width within cell */
+    height: 50px;  /* Adjust as needed */
+    padding: 5px;
+    border: 3px solid #141115;  /* Replace with Max design textarea border color */
+    border-radius: 10px;
+}
+
+/* For the first column */
+.custom-styled-table tbody td:first-child {
+    width: 400px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
+}
+
+/* For the second column */
+.custom-styled-table tbody td:nth-child(2) {
+    width: 500px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
+}
+
+/* For the third column */
+.custom-styled-table tbody td:nth-child(3) {
+    width: 350px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
+}
+
+/* For the fourth column */
+.custom-styled-table tbody td:nth-child(4) {
+    width: 350px;  /* Set the width as you like */
+    white-space: normal;  /* Allows text to wrap to next line */
+    word-wrap: break-word;  /* Breaks the word and wraps onto next line */
+}
+
+/* New flex container with a unique class */
+.flex-container-unique {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.summary-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      background-color: white;
+      margin-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 1440px;
+    }
+    .summary-box {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+    }
+    .summary-section-title {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .summary-checkbox-wrapper {
+      margin: 5px 0;
+    }
+    .summary-criteria,
+    .summary-recommendation {
+      width: 48%;
+    }
+
+
+
+
+
+
+
+
+/* Targeting button with id "downloadButton" */
+#downloadButton {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#downloadButton:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#downloadButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#downloadButton:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 
-  </style>
+
+
+
+
+
+
+</style>
 </head>
 <body>
 
@@ -240,10 +566,10 @@ label {
   <nav class="navbar">
     <div class="container">
       <div class="navbar-menu">
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Review Sheet</a>
+        <a href="#about">Question Set 1</a>
+        <a href="#services">Question Set 2</a>
+        <a href="#contact">Question Set 3</a>
       </div>
       <div class="navbar-brand">
         My Project Title
@@ -251,18 +577,20 @@ label {
     </div>
   </nav>
   
+  
+  
   <div class="section">
     <div class="container center-container">
-      <h2 class="center-header">Student Visa Credibility Interview Quality Sheet
-      </h2>
+      <h2 class="left-header">Student Visa Credibility Interview Quality Sheet</h2>
+    </div>
   </div>
-
+  
   <!-- ... Intial Form input ... -->
   
 
   <div class="section">
     <div class="container">
-      <form class="box">
+      <form class="box form-box">
         <!-- Student Name and Date Picker -->
         <div class="form-group inline-form-group">
           <div class="inline-container">
@@ -279,7 +607,7 @@ label {
         <!-- Course and Time Picker -->
         <div class="form-group inline-form-group">
           <div class="inline-container">
-            <label for="course" style="color: #1f2029; font-family: 'Poppins', sans-serif;">Course:</label>
+            <label for="course" style="font-family: 'Poppins', sans-serif;">Course name:</label>
             <input type="text" id="course" name="course" class="custom-input-field fixed-width">
           </div>
           
@@ -304,31 +632,50 @@ label {
       </form>
     </div>
   </div>
-  
-  
-  
   <div class="section">
     <div class="container">
-      <div class="box" style="margin-left: 20px;"> <!-- The box with added left margin -->
+      <div class="box1" style="margin-left: 20px;">
         <h3>SECTION 1. PRE-INTERVIEW RISK ASSESSMENT</h3>
         <p>In order to ensure students have the appropriate preparation for their Student visa credibility interview, a pre-interview risk assessment is required for all applicants.</p>
         <p>The applicant is not usually required to take part in this stage of the process – the information required should be supplied as part of the completed application.</p>
         <p>Any applicant for whom one or more of the criteria in section 1.1 apply should undertake the extended interview. The criteria in which they have been identified as a higher risk of visa refusal are particularly important areas for extended questioning.</p>
+        
         <h4>1.1. Assessment Criteria</h4>
-        <div class="checkbox-wrapper-14"><input type="checkbox"><label>12 month or more break in study</label></div>
-        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Previous study in the UK</label></div>
-        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Prior study at the same or higher level than course applied for</label></div>
-        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Prior visa refusals or immigration issues</label></div>
+        <div class="checkbox-wrapper-14">
+          <input type="checkbox">
+          <label>12 month or more break in study</label>
+        </div>
+        <div class="checkbox-wrapper-14">
+          <input type="checkbox">
+          <label>Previous study in the UK</label>
+        </div>
+        <div class="checkbox-wrapper-14">
+          <input type="checkbox">
+          <label>Prior study at the same or higher level than course applied for</label>
+        </div>
+        <div class="checkbox-wrapper-14">
+          <input type="checkbox">
+          <label>Prior visa refusals or immigration issues</label>
+        </div>
+  
         <h4>1.2. Interview required</h4>
-        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Standard interview</label></div>
-        <div class="checkbox-wrapper-14"><input type="checkbox"><label>Extended interview</label></div>
+        <div class="checkbox-wrapper-14">
+          <input type="checkbox">
+          <label>Standard interview</label>
+        </div>
+        <div class="checkbox-wrapper-14">
+          <input type="checkbox">
+          <label>Extended interview</label>
+        </div>
       </div>
     </div>
   </div>
 
+ 
+
    <div class="section">
     <div class="container">
-      <div class="box" style="margin-left: 40px;">
+      <div class="box2" style="margin-left: 20px;">
         <h3>INTERVIEW QUESTIONS</h3>
         <div class="styled-table">
           <table>
@@ -932,39 +1279,508 @@ label {
                   </div>
                 </td>
                 <td><textarea class="note-textarea"></textarea></td>
-              </tr>        
-                
-              <!-- #Table ends here# -->
-              
-
+              </tr>
             </tbody>
           </table>
-          <button id="downloadButton">Download PDF</button>
         </div>
       </div>
     </div>
   </div>
+              <!-- #Table 2 Start's here# -->
+
+  <div class="section">
+    <div class="container">
+      <div class="box2" style="margin-left: 20px;">
+        <h3>INTERVIEW QUESTIONS</h3>
+        <div class="styled-table3">
+          <table class="custom-styled-table">
+            <thead>
+              <tr>
+                <th>Questions</th>
+                <th>Tick box if Question has been selected</th>
+                <th>Student Response</th>
+                <th>Notes</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Question 1 -->
+              <tr>
+                <td>What is your favourite holiday destination?</td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">This Question was asked</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-satisfactory" />
+                    <label for="q1-satisfactory">Uderstood</label>
+                  </div>
+                  <div class="checkbox-wrapper-14">
+                    <input type="checkbox" id="q1-unsatisfactory" />
+                    <label for="q1-unsatisfactory">Did Not understood</label>
+                  </div>
+                </td>
+                <td><textarea class="note-textarea"></textarea></td>
+                </tr>
+                <tr>
+                  <td>What is your favourite type of food?</td>
+                  <td>
+                    <div class="checkbox-wrapper-14">
+                      <input type="checkbox" id="q1-satisfactory" />
+                      <label for="q1-satisfactory">This Question was asked</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox-wrapper-14">
+                      <input type="checkbox" id="q1-satisfactory" />
+                      <label for="q1-satisfactory">Uderstood</label>
+                    </div>
+                    <div class="checkbox-wrapper-14">
+                      <input type="checkbox" id="q1-unsatisfactory" />
+                      <label for="q1-unsatisfactory">Did Not understood</label>
+                    </div>
+                  </td>
+                  <td><textarea class="note-textarea"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td>What is your favourite movie?</td>
+                    <td>
+                      <div class="checkbox-wrapper-14">
+                        <input type="checkbox" id="q1-satisfactory" />
+                        <label for="q1-satisfactory">This Question was asked</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="checkbox-wrapper-14">
+                        <input type="checkbox" id="q1-satisfactory" />
+                        <label for="q1-satisfactory">Uderstood</label>
+                      </div>
+                      <div class="checkbox-wrapper-14">
+                        <input type="checkbox" id="q1-unsatisfactory" />
+                        <label for="q1-unsatisfactory">Did Not understood</label>
+                      </div>
+                    </td>
+                    <td><textarea class="note-textarea"></textarea></td>
+                    </tr>
+                    <tr>
+                      <td>What do you do in your free time? Do you have any hobbies?</td>
+                      <td>
+                        <div class="checkbox-wrapper-14">
+                          <input type="checkbox" id="q1-satisfactory" />
+                          <label for="q1-satisfactory">This Question was asked</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="checkbox-wrapper-14">
+                          <input type="checkbox" id="q1-satisfactory" />
+                          <label for="q1-satisfactory">Uderstood</label>
+                        </div>
+                        <div class="checkbox-wrapper-14">
+                          <input type="checkbox" id="q1-unsatisfactory" />
+                          <label for="q1-unsatisfactory">Did Not understood</label>
+                        </div>
+                      </td>
+                      <td><textarea class="note-textarea"></textarea></td>
+                      </tr>
+                      <tr>
+                        <td>What do you like to do on weekends?</td>
+                        <td>
+                          <div class="checkbox-wrapper-14">
+                            <input type="checkbox" id="q1-satisfactory" />
+                            <label for="q1-satisfactory">This Question was asked</label>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="checkbox-wrapper-14">
+                            <input type="checkbox" id="q1-satisfactory" />
+                            <label for="q1-satisfactory">Uderstood</label>
+                          </div>
+                          <div class="checkbox-wrapper-14">
+                            <input type="checkbox" id="q1-unsatisfactory" />
+                            <label for="q1-unsatisfactory">Did Not understood</label>
+                          </div>
+                        </td>
+                        <td><textarea class="note-textarea"></textarea></td>
+                        </tr>
+                        <tr>
+                          <td>Would you like to live in a modern city or a city with more history?</td>
+                          <td>
+                            <div class="checkbox-wrapper-14">
+                              <input type="checkbox" id="q1-satisfactory" />
+                              <label for="q1-satisfactory">This Question was asked</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="checkbox-wrapper-14">
+                              <input type="checkbox" id="q1-satisfactory" />
+                              <label for="q1-satisfactory">Uderstood</label>
+                            </div>
+                            <div class="checkbox-wrapper-14">
+                              <input type="checkbox" id="q1-unsatisfactory" />
+                              <label for="q1-unsatisfactory">Did Not understood</label>
+                            </div>
+                          </td>
+                          <td><textarea class="note-textarea"></textarea></td>
+                          </tr>
+                          <tr>
+                            <td>Do you prefer to buy things online or in shops?</td>
+                            <td>
+                              <div class="checkbox-wrapper-14">
+                                <input type="checkbox" id="q1-satisfactory" />
+                                <label for="q1-satisfactory">This Question was asked</label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="checkbox-wrapper-14">
+                                <input type="checkbox" id="q1-satisfactory" />
+                                <label for="q1-satisfactory">Uderstood</label>
+                              </div>
+                              <div class="checkbox-wrapper-14">
+                                <input type="checkbox" id="q1-unsatisfactory" />
+                                <label for="q1-unsatisfactory">Did Not understood</label>
+                              </div>
+                            </td>
+                            <td><textarea class="note-textarea"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Can you speak any other languages other than English?</td>
+                              <td>
+                                <div class="checkbox-wrapper-14">
+                                  <input type="checkbox" id="q1-satisfactory" />
+                                  <label for="q1-satisfactory">This Question was asked</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="checkbox-wrapper-14">
+                                  <input type="checkbox" id="q1-satisfactory" />
+                                  <label for="q1-satisfactory">Uderstood</label>
+                                </div>
+                                <div class="checkbox-wrapper-14">
+                                  <input type="checkbox" id="q1-unsatisfactory" />
+                                  <label for="q1-unsatisfactory">Did Not understood</label>
+                                </div>
+                              </td>
+                              <td><textarea class="note-textarea"></textarea></td>
+                              </tr>
+                              <tr>
+                                <td>Are there any other languages that you would like to learn?</td>
+                                <td>
+                                  <div class="checkbox-wrapper-14">
+                                    <input type="checkbox" id="q1-satisfactory" />
+                                    <label for="q1-satisfactory">This Question was asked</label>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="checkbox-wrapper-14">
+                                    <input type="checkbox" id="q1-satisfactory" />
+                                    <label for="q1-satisfactory">Uderstood</label>
+                                  </div>
+                                  <div class="checkbox-wrapper-14">
+                                    <input type="checkbox" id="q1-unsatisfactory" />
+                                    <label for="q1-unsatisfactory">Did Not understood</label>
+                                  </div>
+                                </td>
+                                <td><textarea class="note-textarea"></textarea></td>
+                                </tr>
+                                <tr>
+                                  <td>If you could visit anywhere in the world, where would you want to visit?</td>
+                                  <td>
+                                    <div class="checkbox-wrapper-14">
+                                      <input type="checkbox" id="q1-satisfactory" />
+                                      <label for="q1-satisfactory">This Question was asked</label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="checkbox-wrapper-14">
+                                      <input type="checkbox" id="q1-satisfactory" />
+                                      <label for="q1-satisfactory">Uderstood</label>
+                                    </div>
+                                    <div class="checkbox-wrapper-14">
+                                      <input type="checkbox" id="q1-unsatisfactory" />
+                                      <label for="q1-unsatisfactory">Did Not understood</label>
+                                    </div>
+                                  </td>
+                                  <td><textarea class="note-textarea"></textarea></td>
+                                  </tr>
+                                  <tr>
+                                    <td>What movie or TV show have you watched most recently? What was it about?</td>
+                                    <td>
+                                      <div class="checkbox-wrapper-14">
+                                        <input type="checkbox" id="q1-satisfactory" />
+                                        <label for="q1-satisfactory">This Question was asked</label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="checkbox-wrapper-14">
+                                        <input type="checkbox" id="q1-satisfactory" />
+                                        <label for="q1-satisfactory">Uderstood</label>
+                                      </div>
+                                      <div class="checkbox-wrapper-14">
+                                        <input type="checkbox" id="q1-unsatisfactory" />
+                                        <label for="q1-unsatisfactory">Did Not understood</label>
+                                      </div>
+                                    </td>
+                                    <td><textarea class="note-textarea"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                      <td>What’s the most popular sport in your country? Why is it so popular?</td>
+                                      <td>
+                                        <div class="checkbox-wrapper-14">
+                                          <input type="checkbox" id="q1-satisfactory" />
+                                          <label for="q1-satisfactory">This Question was asked</label>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="checkbox-wrapper-14">
+                                          <input type="checkbox" id="q1-satisfactory" />
+                                          <label for="q1-satisfactory">Uderstood</label>
+                                        </div>
+                                        <div class="checkbox-wrapper-14">
+                                          <input type="checkbox" id="q1-unsatisfactory" />
+                                          <label for="q1-unsatisfactory">Did Not understood</label>
+                                        </div>
+                                      </td>
+                                      <td><textarea class="note-textarea"></textarea></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Do you play any sports?</td>
+                                        <td>
+                                          <div class="checkbox-wrapper-14">
+                                            <input type="checkbox" id="q1-satisfactory" />
+                                            <label for="q1-satisfactory">This Question was asked</label>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="checkbox-wrapper-14">
+                                            <input type="checkbox" id="q1-satisfactory" />
+                                            <label for="q1-satisfactory">Uderstood</label>
+                                          </div>
+                                          <div class="checkbox-wrapper-14">
+                                            <input type="checkbox" id="q1-unsatisfactory" />
+                                            <label for="q1-unsatisfactory">Did Not understood</label>
+                                          </div>
+                                        </td>
+                                        <td><textarea class="note-textarea"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Can you describe your hometown?</td>
+                                          <td>
+                                            <div class="checkbox-wrapper-14">
+                                              <input type="checkbox" id="q1-satisfactory" />
+                                              <label for="q1-satisfactory">This Question was asked</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div class="checkbox-wrapper-14">
+                                              <input type="checkbox" id="q1-satisfactory" />
+                                              <label for="q1-satisfactory">Uderstood</label>
+                                            </div>
+                                            <div class="checkbox-wrapper-14">
+                                              <input type="checkbox" id="q1-unsatisfactory" />
+                                              <label for="q1-unsatisfactory">Did Not understood</label>
+                                            </div>
+                                          </td>
+                                          <td><textarea class="note-textarea"></textarea></td>
+                                          </tr>
+                                          <tr>
+                                            <td>For how long have you known your best friend?</td>
+                                            <td>
+                                              <div class="checkbox-wrapper-14">
+                                                <input type="checkbox" id="q1-satisfactory" />
+                                                <label for="q1-satisfactory">This Question was asked</label>
+                                              </div>
+                                            </td>
+                                            <td>
+                                              <div class="checkbox-wrapper-14">
+                                                <input type="checkbox" id="q1-satisfactory" />
+                                                <label for="q1-satisfactory">Uderstood</label>
+                                              </div>
+                                              <div class="checkbox-wrapper-14">
+                                                <input type="checkbox" id="q1-unsatisfactory" />
+                                                <label for="q1-unsatisfactory">Did Not understood</label>
+                                              </div>
+                                            </td>
+                                            <td><textarea class="note-textarea"></textarea></td>
+                                            </tr>
+                                            <tr>
+                                              <td>What can you tell me about global warming?</td>
+                                              <td>
+                                                <div class="checkbox-wrapper-14">
+                                                  <input type="checkbox" id="q1-satisfactory" />
+                                                  <label for="q1-satisfactory">This Question was asked</label>
+                                                </div>
+                                              </td>
+                                              <td>
+                                                <div class="checkbox-wrapper-14">
+                                                  <input type="checkbox" id="q1-satisfactory" />
+                                                  <label for="q1-satisfactory">Uderstood</label>
+                                                </div>
+                                                <div class="checkbox-wrapper-14">
+                                                  <input type="checkbox" id="q1-unsatisfactory" />
+                                                  <label for="q1-unsatisfactory">Did Not understood</label>
+                                                </div>
+                                              </td>
+                                              <td><textarea class="note-textarea"></textarea></td>
+                                              </tr>
+                                              <tr>
+                                                <td>When did you first start learning the English language?</td>
+                                                <td>
+                                                  <div class="checkbox-wrapper-14">
+                                                    <input type="checkbox" id="q1-satisfactory" />
+                                                    <label for="q1-satisfactory">This Question was asked</label>
+                                                  </div>
+                                                </td>
+                                                <td>
+                                                  <div class="checkbox-wrapper-14">
+                                                    <input type="checkbox" id="q1-satisfactory" />
+                                                    <label for="q1-satisfactory">Uderstood</label>
+                                                  </div>
+                                                  <div class="checkbox-wrapper-14">
+                                                    <input type="checkbox" id="q1-unsatisfactory" />
+                                                    <label for="q1-unsatisfactory">Did Not understood</label>
+                                                  </div>
+                                                </td>
+                                                <td><textarea class="note-textarea"></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Do you know how to drive? Do you plan to get a driving licence while in the UK?</td>
+                                                  <td>
+                                                    <div class="checkbox-wrapper-14">
+                                                      <input type="checkbox" id="q1-satisfactory" />
+                                                      <label for="q1-satisfactory">This Question was asked</label>
+                                                    </div>
+                                                  </td>
+                                                  <td>
+                                                    <div class="checkbox-wrapper-14">
+                                                      <input type="checkbox" id="q1-satisfactory" />
+                                                      <label for="q1-satisfactory">Uderstood</label>
+                                                    </div>
+                                                    <div class="checkbox-wrapper-14">
+                                                      <input type="checkbox" id="q1-unsatisfactory" />
+                                                      <label for="q1-unsatisfactory">Did Not understood</label>
+                                                    </div>
+                                                  </td>
+                                                  <td><textarea class="note-textarea"></textarea></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Who is the current Prime Minister of the United Kingdom?</td>
+                                                    <td>
+                                                      <div class="checkbox-wrapper-14">
+                                                        <input type="checkbox" id="q1-satisfactory" />
+                                                        <label for="q1-satisfactory">This Question was asked</label>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="checkbox-wrapper-14">
+                                                        <input type="checkbox" id="q1-satisfactory" />
+                                                        <label for="q1-satisfactory">Uderstood</label>
+                                                      </div>
+                                                      <div class="checkbox-wrapper-14">
+                                                        <input type="checkbox" id="q1-unsatisfactory" />
+                                                        <label for="q1-unsatisfactory">Did Not understood</label>
+                                                      </div>
+                                                    </td>
+                                                    <td><textarea class="note-textarea"></textarea></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Who is the current President of the United States of America?</td>
+                                                      <td>
+                                                        <div class="checkbox-wrapper-14">
+                                                          <input type="checkbox" id="q1-satisfactory" />
+                                                          <label for="q1-satisfactory">This Question was asked</label>
+                                                        </div>
+                                                      </td>
+                                                      <td>
+                                                        <div class="checkbox-wrapper-14">
+                                                          <input type="checkbox" id="q1-satisfactory" />
+                                                          <label for="q1-satisfactory">Uderstood</label>
+                                                        </div>
+                                                        <div class="checkbox-wrapper-14">
+                                                          <input type="checkbox" id="q1-unsatisfactory" />
+                                                          <label for="q1-unsatisfactory">Did Not understood</label>
+                                                        </div>
+                                                      </td>
+                                                      <td><textarea class="note-textarea"></textarea></td>
+                                                      </tr>
+                                                      
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="summary-container">
+    <div class="summary-section-title">SECTION 4. SUMMARY AND RECOMMENDATIONS</div>
+    <div class="summary-box">
+      <div class="summary-criteria">
+        <h4>4.2. Assessment Criteria</h4>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check1" name="summary-check1">
+          <label for="summary-check1">Answers to all questions were credible</label>
+        </div>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check2" name="summary-check2">
+          <label for="summary-check2">No serious concerns were raised</label>
+        </div>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check3" name="summary-check3">
+          <label for="summary-check3">Answers were personal and specific to the applicant</label>
+        </div>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check4" name="summary-check4">
+          <label for="summary-check4">Applicant can provide evidence to support answer to question</label>
+        </div>
+      </div>
+
+      <div class="summary-recommendation">
+        <h4>4.3. Assessment and Recommendation</h4>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check5" name="summary-check5">
+          <label for="summary-check5">Satisfactory interview – recommend CAS</label>
+        </div>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check6" name="summary-check6">
+          <label for="summary-check6">Unsatisfactory interview – schedule further interview</label>
+        </div>
+        <div class="checkbox-wrapper-14 even-checkbox">
+          <input type="checkbox" id="summary-check7" name="summary-check7">
+          <label for="summary-check7">Unsatisfactory interview – no further attempts. Reject applicant</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="downloadButton">Download PDF</button>
+
+              
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const downloadButton = document.getElementById("downloadButton");
+document.addEventListener("DOMContentLoaded", function() {
+  const downloadButton = document.getElementById("downloadButton");
 
-      downloadButton.addEventListener("click", function() {
-        // Capture the entire body or another container that wraps around all the content you want to capture.
-        const contentToCapture = document.body;
+  downloadButton.addEventListener("click", function() {
+    // Capture the entire body or another container that wraps around all the content you want to capture.
+    const contentToCapture = document.body;
 
-        const opt = {
-          margin: 10,
-          filename: 'entire-page.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+    const opt = {
+      margin: 10,
+      filename: 'entire-page.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 1 },  // Try reducing scale to fit content
+      jsPDF: { 
+        unit: 'px',  // Using pixels as unit
+        format: [1450, 842],  // Custom format to fit your content width
+        orientation: 'landscape'
+      }
+    };
 
-        html2pdf().from(contentToCapture).set(opt).outputPdf().then(function(pdf) {
-          html2pdf().from(contentToCapture).set(opt).save();  // This will trigger the download
-        });
-      });
+    html2pdf().from(contentToCapture).set(opt).outputPdf().then(function(pdf) {
+      html2pdf().from(contentToCapture).set(opt).save();  // This will trigger the download
     });
+  });
+});
   </script>
 </body>
 </html>
